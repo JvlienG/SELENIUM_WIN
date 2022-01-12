@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"fr.zenity.stepDefinitions", "fr/zenity/pageObjects"},
         plugin = {"pretty",
                 "html:test-output",
-                "json:target/cucumber-report/cucumber.json",
+                "json:target/cucumber-report/Cucumber.json",
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
         },
         publish= true,

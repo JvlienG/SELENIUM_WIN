@@ -21,10 +21,10 @@ public class LoginPage extends Page{
         driver.get(URL);
     }
 
-    public void login() throws IOException {
+    public void login(String usr, String pwd) throws IOException {
 
-        String username = "test8@yopmail.com";
-        String password = "Cacahuette9102";
+        String username = usr;
+        String password = pwd;
 
         WebElement usernameInput = this.driver.findElement(this.usernameInputLocator);
         WebElement passwordInput  = this.driver.findElement(this.passwordInputLocator);

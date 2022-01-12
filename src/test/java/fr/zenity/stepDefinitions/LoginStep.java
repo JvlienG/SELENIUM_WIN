@@ -18,8 +18,8 @@ public class LoginStep implements En {
             loginPage.navigateTo();
         });
 
-        When("^user is logging-in with username and password$", () -> {
-            loginPage.login();
+        When("^user is logging-in with \"([^\"]*)\" and \"([^\"]*)\"$", (String user, String pwd) -> {
+            loginPage.login(user, pwd);
         });
 
         Then("^he should be on the home page with a welcome message$", () -> {
