@@ -1,15 +1,14 @@
 package fr.zenity.pageObjects;
 
 import fr.zenity.manager.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.function.Function;
 
 public class Page {
     protected WebDriver driver;
@@ -42,6 +41,64 @@ public class Page {
 
     public void maximize(){
         driver.manage().window().maximize();
+    }
+
+    /**
+     * Wait until the condition in the function is satisfied
+     *
+     * @param isTrue the condition
+     * @param <V>    the condition return type
+     * @return true is thee condition is satisfied, false if the condition hasn't been satisfied in the given time
+     */
+    protected <V> boolean waitForPageLoading(Function<? super WebDriver, V> isTrue) {
+        try {
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    protected <V> boolean waitUntil(Function<? super WebDriver, V> isTrue) {
+        try {
+            wait.until(isTrue);
+            return true;
+        } catch (StaleElementReferenceException | TimeoutException e) {
+            return false;
+        }
+    }
+
+    protected <V> boolean loadingWaitUntil(Function<? super WebDriver, V> isTrue) {
+        try {
+            return true;
+        } catch (StaleElementReferenceException | TimeoutException e) {
+            return false;
+        }
+    }
+
+    protected <V> boolean shortWaitUntil(Function<? super WebDriver, V> isTrue) {
+        try {
+            shortWait.until(isTrue);
+            return true;
+        } catch (StaleElementReferenceException | TimeoutException e) {
+            return false;
+        }
+    }
+
+    protected <V> boolean loginWaitUntil(Function<? super WebDriver, V> isTrue) {
+        try {
+            return true;
+        } catch (StaleElementReferenceException | TimeoutException e) {
+            return false;
+        }
+    }
+
+    protected <V> boolean middleWaitUntil(Function<? super WebDriver, V> isTrue) {
+        try {
+            middleWait.until(isTrue);
+            return true;
+        } catch (StaleElementReferenceException | TimeoutException e) {
+            return false;
+        }
     }
 
 }

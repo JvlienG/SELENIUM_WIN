@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="GameCash_Selenium" />
+        <module name="SELENIUM" />
       </profile>
     </annotationProcessing>
   </component>

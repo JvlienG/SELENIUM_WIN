@@ -12,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
         },
         publish= true,
-        tags = "@Login"
+        tags = "@SearchEx"
 )
 public class TestRunner extends BaseRunner{
 }

@@ -1,5 +1,5 @@
 @Login
-Feature: As a Zenity collaborator I want to login so that I could access the intranet
+Feature: As user I want to log to my account
 
   Scenario Outline: Login with valid credentials
     Given user is on the login page
