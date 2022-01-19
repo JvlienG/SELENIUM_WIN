@@ -61,12 +61,6 @@ public class LoginPage extends Page{
         submitButton.click();
     }
 
-   /* public void boucle(){
-        for(int i = 0; i < list.size(); i++){
-
-        }
-    }*/
-
 
 
 }

@@ -38,22 +38,20 @@ public class ArticlePage extends Page{
             wSearch.sendKeys(rech + '\n');
         }
 
-        public void isSearchPage(String rech){
+        public boolean isSearchPage(String rech){
             String Search = rech;
-            System.out.println(Search.replace(" ", "+"));
             this.pause(4000);
-            assertTrue(this.driver.getCurrentUrl().contains(Search.replace(" ", "+")));
+            return this.driver.getCurrentUrl().contains(Search.replace(" ", "+"));
         }
 
-        public void isSearchPage(){
+        public boolean isSearchPage(){
             ManagerXLS data = new ManagerXLS();
             data.load("Search");
             List<String> dataSearch = data.getLine(0);
             String Search = dataSearch.get(0);
 
-            System.out.println(Search.replace(" ", "+"));
             this.pause(4000);
-            assertTrue(this.driver.getCurrentUrl().contains(Search.replace(" ", "+")));
+            return this.driver.getCurrentUrl().contains(Search.replace(" ", "+"));
         }
 
     public void searchArticle(){
@@ -73,8 +71,8 @@ public class ArticlePage extends Page{
             wProduit.click();
         }
 
-        public void selectArticle(int x){
-            By product = By.cssSelector(".product-item:nth-child(" + x + ") .title");
+        public void selectArticle(){
+            By product = By.cssSelector(".product-item:nth-child(1) .title");
             if(driver.findElement(product).isDisplayed()){
                 WebElement wProduit = this.driver.findElement(product);
                 this.productTitle = wProduit.getText();
@@ -84,13 +82,12 @@ public class ArticlePage extends Page{
             }
         }
 
-        public void isSelected(){
+        public boolean isSelected(){
             String product = this.productTitle.toLowerCase(Locale.ROOT);
             product = product.replace(" ", "-");
             product = product.replace(":", "");
-            System.out.println(product.replaceAll("-{2,}", "-"));
             product = product.replaceAll("-{2,}", "-");
-            assertTrue(this.driver.getCurrentUrl().contains(product));
+            return this.driver.getCurrentUrl().contains(product);
         }
 
     /* ######### FIN SELECTION D'ARTICLE ######### */

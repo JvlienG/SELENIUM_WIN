@@ -5,23 +5,25 @@ import fr.zenity.pageObjects.ArticlePage;
 
 import io.cucumber.java8.En;
 
+import static org.testng.Assert.assertTrue;
+
 public class SelectStep implements En {
 
     public SelectStep(ArticlePage articlePage, HomePage homePage){
         Given("^user is on result page for \"([^\"]*)\"$", (String art) -> {
-            homePage.navigateTo();
-            articlePage.searchArticle(art);
-            articlePage.isSearchPage(art);
+            if(!(articlePage.isSearchPage(art))) {
+                homePage.navigateTo();
+                articlePage.searchArticle(art);
+                articlePage.isSearchPage(art);
+            }else{System.out.println("ELSE");}
         });
 
-        When("^user select the (-?\\d+) article on the page$", (String numb) -> {
-            articlePage.selectArticle(Integer.parseInt(numb));
+        When("^user select the first article on the page$", () -> {
+            articlePage.selectArticle();
         });
 
         Then("^he should be on the article page$", () -> {
-            articlePage.isSelected();
-        });
-        When("^user select the <number> article on the page$", () -> {
+            assertTrue(articlePage.isSelected());
         });
     }
 }

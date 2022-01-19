@@ -11,7 +11,8 @@ import io.cucumber.testng.CucumberOptions;
                 "json:target/cucumber-report/Cucumber.json",
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
         },
-        publish= true
+        publish= false,
+        tags="@Search or @Select"
 )
 public class TestRunner extends BaseRunner{
 }

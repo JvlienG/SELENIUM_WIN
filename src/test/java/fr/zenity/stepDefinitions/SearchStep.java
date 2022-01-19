@@ -4,6 +4,8 @@ import fr.zenity.pageObjects.ArticlePage;
 import fr.zenity.pageObjects.HomePage;
 import io.cucumber.java8.En;
 
+import static org.testng.Assert.assertTrue;
+
 public class SearchStep implements En {
 
     public SearchStep(HomePage home, ArticlePage articlePage){
@@ -16,7 +18,7 @@ public class SearchStep implements En {
         });
 
         Then("^he should be on the result page matching with \"([^\"]*)\"$", (String art) -> {
-            articlePage.isSearchPage(art);
+            assertTrue(articlePage.isSearchPage(art));
         });
     }
 

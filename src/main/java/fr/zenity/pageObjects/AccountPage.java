@@ -180,11 +180,7 @@ public class AccountPage extends Page{
     }
 
     public boolean createdAccount(){
-        if(this.driver.findElement(created).isDisplayed()){
-            System.out.println("Compte créé");
-            return true;
-        }
-        System.out.println("Erreur de création");
+        if(this.driver.findElement(created).isDisplayed()){return true;}
         return false;
     }
 
