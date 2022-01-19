@@ -56,12 +56,6 @@ public class HomePage extends Page{
 
         this.pause(2000);
 
-        if(driver.findElement(welcome).isDisplayed()){
-            System.out.println("Element is Visible");
-            return true;
-        }else {
-            System.out.println("Element is InVisible");
-            return false;
-        }
+        return driver.findElement(welcome).isDisplayed();
     }
 }

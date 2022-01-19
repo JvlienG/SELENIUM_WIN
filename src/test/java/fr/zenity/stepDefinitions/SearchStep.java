@@ -17,6 +17,13 @@ public class SearchStep implements En {
             articlePage.searchArticle(art);
         });
 
+        When("^user do a research for article from Excel data$", () -> {
+            articlePage.searchArticle();
+        });
+        Then("he should be on the result page matching with research", () -> {
+            assertTrue(articlePage.isSearchPage());
+        });
+
         Then("^he should be on the result page matching with \"([^\"]*)\"$", (String art) -> {
             assertTrue(articlePage.isSearchPage(art));
         });

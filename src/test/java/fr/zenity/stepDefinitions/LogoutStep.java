@@ -12,12 +12,9 @@ public class LogoutStep implements En {
     public LogoutStep(AccountPage accountPage, LoginPage loginPage, LogoutPage logOutPage){
         Given("^user is on account page$", () -> {
             accountPage.goTo();
-            if(!(accountPage.isLogged())){
+            if(!(accountPage.isLogged())) {
                 loginPage.login();
                 accountPage.navigateTo();
-            }else{
-                System.out.println("Je suis dans le else");
-
             }
         });
 

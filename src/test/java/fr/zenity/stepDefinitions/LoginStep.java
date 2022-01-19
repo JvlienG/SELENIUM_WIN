@@ -22,6 +22,10 @@ public class LoginStep implements En {
             loginPage.login(user, pwd);
         });
 
+        When("user is logging-in with the data from Excel", () -> {
+            loginPage.login();
+        });
+
         Then("^he should be on the home page with a welcome message$", () -> {
             assertTrue(homePage.isWelcomeDisplayed());
         });
