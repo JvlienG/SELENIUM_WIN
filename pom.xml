@@ -144,12 +144,6 @@
             <version>${excel.version}</version>
         </dependency>
 
-        <!-- Allure report -->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber3-jvm</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
 
     </dependencies>
 
