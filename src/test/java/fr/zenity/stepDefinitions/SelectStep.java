@@ -22,8 +22,13 @@ public class SelectStep implements En {
             articlePage.selectArticle();
         });
 
+        When("^user select the first article$", () -> {
+           articlePage.selectArticle();
+           assertTrue(articlePage.isSelected());
+        });
+
         Then("^he should be on the article page$", () -> {
-            assertTrue(articlePage.isSelected());
+           assertTrue(articlePage.isSelected());
         });
     }
 }

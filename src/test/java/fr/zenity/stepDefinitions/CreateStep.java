@@ -8,9 +8,6 @@ import static org.testng.Assert.assertTrue;
 public class CreateStep implements En {
 
     public CreateStep(AccountPage account){
-        /*Given("", () -> {
-
-        });*/
 
         When("^user fill is email by \"([^\"]*)\"$", (String email) -> {
             account.adresseMail(email);
@@ -67,6 +64,18 @@ public class CreateStep implements En {
 
         Then("^he should be on page for account activation$", () -> {
             assertTrue(account.createdAccount());
+        });
+
+        When("^user create (-?\\d+) accounts$", (String nb) -> {
+            account.boucle(Integer.parseInt(nb));
+        });
+
+        When("^user create all accounts$", () -> {
+            account.boucle(null);
+        });
+
+        Then("", () -> {
+
         });
     }
 }

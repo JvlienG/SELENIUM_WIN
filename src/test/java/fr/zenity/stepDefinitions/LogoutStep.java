@@ -10,15 +10,19 @@ import static org.testng.Assert.assertTrue;
 public class LogoutStep implements En {
 
     public LogoutStep(AccountPage accountPage, LoginPage loginPage, LogoutPage logOutPage){
-        Given("^user is on account page$", () -> {
-            accountPage.goTo();
-            if(!(accountPage.isLogged())) {
+       Given("^user is on account page$", () -> {
+           accountPage.goTo();
+           if(!(accountPage.isLogged())) {
                 loginPage.login();
                 accountPage.navigateTo();
-            }
+           }
         });
 
         When("^user click on \"log out\"$", () -> {
+            logOutPage.logout();
+        });
+
+        When("^user logout$", () -> {
             logOutPage.logout();
         });
 

@@ -34,10 +34,7 @@ public class HomePage extends Page{
     }
 
     public void navigateTo(){
-        if(this.currentUrl.equals(this.URL)){
-            return;
-        }
-        driver.get(URL);
+        if(!(this.currentUrl.equals(this.URL))) { driver.get(URL); }
     }
 
     public void returnTo(){

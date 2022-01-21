@@ -7,7 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Util {
 
-    @Attachment(value = "Screenshot after {name}", type = "image/png")
+   @Attachment(value = "Screenshot after {name}", type = "image/png")
     public static byte[] takeScreenshot(String name) {
         return ((TakesScreenshot) WebDriverManager.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES);
     }

@@ -10,12 +10,14 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginStep implements En {
 
-    private WebDriver driver;
-    //private LoginPage loginPage= new LoginPage();
-
     public LoginStep(HomePage homePage,LoginPage loginPage) {
-        Given("^user is on the login page$", () -> {
+       Given("^user is on the login page$", () -> {
             loginPage.navigateTo();
+        });
+
+        When("^user login with Excel data$", () -> {
+            loginPage.login();
+            assertTrue(homePage.isWelcomeDisplayed());
         });
 
         When("^user is logging-in with \"([^\"]*)\" and \"([^\"]*)\"$", (String user, String pwd) -> {

@@ -1,6 +1,6 @@
-@Search
-Feature: As user I want to search an article
 
+Feature: As user I want to search an article
+  @Search
   Scenario Outline: Search an article on the site
     Given user is on home page
     When user do a research for "<article>"

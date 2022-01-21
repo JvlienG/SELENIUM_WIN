@@ -9,10 +9,10 @@ public class Hooks{
     public Hooks(){
 
     }
-
+/*
     @After(order = 1000)
     public void screenShots(Scenario scenario){
-        Util.takeScreenshot(scenario.getName());
+        /*if(scenario.isFailed()) Util.takeScreenshot(scenario.getName());
     }
-
+*/
 }

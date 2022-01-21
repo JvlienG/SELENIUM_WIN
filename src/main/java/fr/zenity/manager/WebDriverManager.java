@@ -5,6 +5,8 @@ import fr.zenity.drivers.DriverFactory;
 import fr.zenity.drivers.Drivers;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Locale;
+
 public class WebDriverManager implements Drivers {
 
     private final static WebDriverManager INSTANCE = new WebDriverManager();
@@ -23,6 +25,8 @@ public class WebDriverManager implements Drivers {
     public void setDriver(Browser browser){
         driver.set(new DriverFactory(browser));
     }
+
+    public void setDriver(String browser){ setDriver(Browser.valueOf(browser.toUpperCase(Locale.ROOT)));}
 
     public static WebDriverManager getInstance(){return INSTANCE;}
 }

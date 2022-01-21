@@ -7,12 +7,12 @@ import io.cucumber.testng.CucumberOptions;
         //monochrome = true,
         glue = {"fr.zenity.stepDefinitions", "fr/zenity/pageObjects"},
         plugin = {"pretty",
-                "html:test-output",
-                "json:target/cucumber-report/Cucumber.json",
+                "html:target/reports/html/htmlreport",
+                "json:target/reports/jsonreports/index.json",
+                "junit:target/reports/xmlreport.xml",
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
-        },
-        publish= false,
-        tags="@Login"
+        }
 )
 public class TestRunner extends BaseRunner{
+
 }
