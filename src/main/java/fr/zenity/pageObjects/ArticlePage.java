@@ -72,7 +72,7 @@ public class ArticlePage extends Page{
         }
 
         public void selectArticle(){
-            By product = By.cssSelector(".product-item:nth-child(1) .title");
+            By product = By.cssSelector(".product-item:nth-child(2) .title");
             if(driver.findElement(product).isDisplayed()){
                 WebElement wProduit = this.driver.findElement(product);
                 this.productTitle = wProduit.getText();
@@ -85,8 +85,14 @@ public class ArticlePage extends Page{
         public boolean isSelected(){
             String product = this.productTitle.toLowerCase(Locale.ROOT);
             product = product.replace(" ", "-");
+            product = product.replace("?", "-");
+            product = product.replace("\'", "-");
             product = product.replace(":", "");
             product = product.replaceAll("-{2,}", "-");
+            System.out.println(this.productTitle);
+            System.out.println(product);
+
+            System.out.println(this.driver.getCurrentUrl());
             return this.driver.getCurrentUrl().contains(product);
         }
 

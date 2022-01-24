@@ -11,7 +11,8 @@ import io.cucumber.testng.CucumberOptions;
                 "json:target/reports/jsonreports/index.json",
                 "junit:target/reports/xmlreport.xml",
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
-        }
+        },
+        tags = "@Login"
 )
 public class TestRunner extends BaseRunner{
 
